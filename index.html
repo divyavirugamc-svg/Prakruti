@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ayurveda Prakriti Questionnaire</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f7f9fb; }
+    h1 { font-size: 24px; }
+    .question { margin-bottom: 20px; padding: 10px; background: #fff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .opts { margin-top: 8px; }
+    .report { margin-top: 20px; padding: 15px; border: 1px solid #ccc; background: #fff; border-radius: 8px; }
+    .bar { height: 14px; background: #eee; margin: 5px 0; border-radius: 7px; overflow: hidden; }
+    .bar > i { display: block; height: 100%; }
+    .vata { background: orange; }
+    .pitta { background: red; }
+    .kapha { background: green; }
+    button { padding: 8px 16px; margin: 5px; border: none; border-radius: 6px; cursor: pointer; }
+    button.submit { background: #0b67ff; color: #fff; }
+    button.reset { background: #ccc; }
+  </style>
+</head>
+<body>
+  <h1>Ayurveda Prakriti Questionnaire</h1>
+  <p>Answer the following questions to estimate your prakriti (Vata / Pitta / Kapha). After submitting, you will see your report.</p>
+
+  <form id="prakritiForm">
+    <!-- Example question structure; repeated for 18 questions -->
+    <div class="question">
+      <strong>1. Body frame / build</strong>
+      <div class="opts">
+        <label><input type="radio" name="q1" data-v="2"> Thin, light frame (Vata)</label><br>
+        <label><input type="radio" name="q1" data-p="2"> Medium, muscular (Pitta)</label><br>
+        <label><input type="radio" name="q1" data-k="2"> Sturdy, heavy (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>2. Appetite</strong>
+      <div class="opts">
+        <label><input type="radio" name="q2" data-v="1"> Irregular (Vata)</label><br>
+        <label><input type="radio" name="q2" data-p="2"> Strong (Pitta)</label><br>
+        <label><input type="radio" name="q2" data-k="2"> Steady, slow (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>3. Sleep pattern</strong>
+      <div class="opts">
+        <label><input type="radio" name="q3" data-v="2"> Light, easily awakened (Vata)</label><br>
+        <label><input type="radio" name="q3" data-p="2"> Moderate, disturbed by stress (Pitta)</label><br>
+        <label><input type="radio" name="q3" data-k="2"> Deep, long sleep (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>4. Skin type</strong>
+      <div class="opts">
+        <label><input type="radio" name="q4" data-v="2"> Dry, rough (Vata)</label><br>
+        <label><input type="radio" name="q4" data-p="2"> Warm, oily, sensitive (Pitta)</label><br>
+        <label><input type="radio" name="q4" data-k="2"> Smooth, moist (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>5. Temperature preference</strong>
+      <div class="opts">
+        <label><input type="radio" name="q5" data-v="2"> Prefer warmth (Vata)</label><br>
+        <label><input type="radio" name="q5" data-p="2"> Prefer moderate, dislike heat (Pitta)</label><br>
+        <label><input type="radio" name="q5" data-k="2"> Tolerant of cold (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>6. Hair</strong>
+      <div class="opts">
+        <label><input type="radio" name="q6" data-v="2"> Dry, brittle, thin (Vata)</label><br>
+        <label><input type="radio" name="q6" data-p="2"> Fine, early greying (Pitta)</label><br>
+        <label><input type="radio" name="q6" data-k="2"> Thick, oily (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>7. Speech & memory</strong>
+      <div class="opts">
+        <label><input type="radio" name="q7" data-v="2"> Quick, forgetful (Vata)</label><br>
+        <label><input type="radio" name="q7" data-p="2"> Sharp, logical (Pitta)</label><br>
+        <label><input type="radio" name="q7" data-k="2"> Slow but steady memory (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>8. Digestion</strong>
+      <div class="opts">
+        <label><input type="radio" name="q8" data-v="1"> Irregular, bloating (Vata)</label><br>
+        <label><input type="radio" name="q8" data-p="2"> Strong, acidity (Pitta)</label><br>
+        <label><input type="radio" name="q8" data-k="2"> Slow, heavy (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>9. Energy</strong>
+      <div class="opts">
+        <label><input type="radio" name="q9" data-v="2"> Variable, bursts (Vata)</label><br>
+        <label><input type="radio" name="q9" data-p="2"> Steady, high (Pitta)</label><br>
+        <label><input type="radio" name="q9" data-k="2"> Slow, enduring (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>10. Reaction to stress</strong>
+      <div class="opts">
+        <label><input type="radio" name="q10" data-v="2"> Anxious, restless (Vata)</label><br>
+        <label><input type="radio" name="q10" data-p="2"> Irritable, angry (Pitta)</label><br>
+        <label><input type="radio" name="q10" data-k="2"> Withdrawn, stubborn (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>11. Thirst</strong>
+      <div class="opts">
+        <label><input type="radio" name="q11" data-v="1"> Drinks little (Vata)</label><br>
+        <label><input type="radio" name="q11" data-p="2"> Prefers cool drinks (Pitta)</label><br>
+        <label><input type="radio" name="q11" data-k="2"> Drinks slowly, warm drinks (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>12. Nails</strong>
+      <div class="opts">
+        <label><input type="radio" name="q12" data-v="2"> Thin, brittle (Vata)</label><br>
+        <label><input type="radio" name="q12" data-p="2"> Soft, with lines (Pitta)</label><br>
+        <label><input type="radio" name="q12" data-k="2"> Thick, strong (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>13. Body temperature</strong>
+      <div class="opts">
+        <label><input type="radio" name="q13" data-v="2"> Often feel cold (Vata)</label><br>
+        <label><input type="radio" name="q13" data-p="2"> Feel warm, sweat easily (Pitta)</label><br>
+        <label><input type="radio" name="q13" data-k="2"> Cool and moist (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>14. Body hair / eyebrows</strong>
+      <div class="opts">
+        <label><input type="radio" name="q14" data-v="2"> Sparse (Vata)</label><br>
+        <label><input type="radio" name="q14" data-p="2"> Moderate, fine (Pitta)</label><br>
+        <label><input type="radio" name="q14" data-k="2"> Thick, dense (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>15. Movement & gait</strong>
+      <div class="opts">
+        <label><input type="radio" name="q15" data-v="2"> Quick, changeable (Vata)</label><br>
+        <label><input type="radio" name="q15" data-p="2"> Purposeful (Pitta)</label><br>
+        <label><input type="radio" name="q15" data-k="2"> Slow, steady (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>16. Allergies / congestion</strong>
+      <div class="opts">
+        <label><input type="radio" name="q16" data-v="2"> Dryness (Vata)</label><br>
+        <label><input type="radio" name="q16" data-p="2"> Burning, inflammation (Pitta)</label><br>
+        <label><input type="radio" name="q16" data-k="2"> Congestion, mucus (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>17. Weight changes</strong>
+      <div class="opts">
+        <label><input type="radio" name="q17" data-v="2"> Lose weight easily (Vata)</label><br>
+        <label><input type="radio" name="q17" data-p="2"> Stable weight (Pitta)</label><br>
+        <label><input type="radio" name="q17" data-k="2"> Gain easily (Kapha)</label>
+      </div>
+    </div>
+
+    <div class="question">
+      <strong>18. Teeth / nails sensitivity</strong>
+      <div class="opts">
+        <label><input type="radio" name="q18" data-v="2"> Sensitive, brittle (Vata)</label><br>
+        <label><input type="radio" name="q18" data-p="2"> Ulcers, gum issues (Pitta)</label><br>
+        <label><input type="radio" name="q18" data-k="2"> Strong (Kapha)</label>
+      </div>
+    </div>
+
+    <button type="submit" class="submit">Submit & Get Report</button>
+    <button type="reset" class="reset">Reset</button>
+  </form>
+
+  <div id="report" class="report" style="display:none"></div>
+
+  <script>
+    function getScore(el, key){ return parseFloat(el.getAttribute('data-' + key) || 0) || 0 }
+
+    const form = document.getElementById('prakritiForm');
+    const reportBox = document.getElementById('report');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const inputs = form.querySelectorAll('input[type=radio]:checked');
+      const totals = {v:0,p:0,k:0};
+      inputs.forEach(inp => {
+        totals.v += getScore(inp,'v');
+        totals.p += getScore(inp,'p');
+        totals.k += getScore(inp,'k');
+      });
+
+      const answered = inputs.length;
+      const max = answered * 2 || 1;
+      const pct = {
+        v: Math.round((totals.v / max) * 100),
+        p: Math.round((totals.p / max) * 100),
+        k: Math.round((totals.k / max) * 100)
+      };
+
+      const sorted = Object.entries(totals).sort((a,b)=>b[1]-a[1]);
+      const primary = sorted[0][0];
+      const secondary = sorted[1][0];
+
+      function doshaName(c){ return c==='v'?'Vata':c==='p'?'Pitta':'Kapha'; }
+
+      const html = `
+        <h3>Report</h3>
+        <p>Vata: ${totals.v} <div class="bar"><i class="vata" style="width:${pct.v}%"></i></div></p>
+        <p>Pitta: ${totals.p} <div class="bar"><i class="pitta" style="width:${pct.p}%"></i></div></p>
+        <p>Kapha: ${totals.k} <div class="bar"><i class="kapha" style="width:${pct.k}%"></i></div></p>
+        <p><strong>Primary:</strong> ${doshaName(primary)} | <strong>Secondary:</strong> ${doshaName(secondary)}</p>
+      `;
+
+      reportBox.innerHTML = html;
+      reportBox.style.display = 'block';
+      reportBox.scrollIntoView({behavior:'smooth'});
+    });
+  </script>
+</body>
+</html>
